@@ -57,15 +57,19 @@ public class Serpiente extends Reptil {
 	}
 
     //Methods
-    public double TamañoRecinto() {
+    public double tamañoRecinto() {
         return 0.0;
     }
 
-    public double ComidaDiaria() {
+    public double comidaDiaria() {
         return 0.0;
     }
 
-    public double CostoMantenimientoMensual() {
+    public double costoMantenimiento() {
         return 0.0;
+    }
+
+    public String getInfo(){
+        return "Serpiente: " + super.getInfo() + ", longitdud: " + this.longitud +  ", especie: " + this.especie + ", color de piel: " + this.venenosa + "tipo de veneno: " + this.tipoVeneno ;
     }
 }

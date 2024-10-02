@@ -82,7 +82,7 @@ public class Main {
             
                     if (seleccion == 1) {
                         for (Serpiente serpiente : serpientes) {
-                            System.out.println("Tamaño del recinto para la serpiente " + serpiente.nombreCientifico + ": " + serpiente.tamañoRecinto() + " m^2");
+                            System.out.println("Tamaño del recinto para la serpiente " + serpiente.nombreCientifico + ": " + serpiente.TamañoRecinto() + " m^2");
                         }
                     } else if (seleccion == 2) {
                         for (ReptilAcuatico reptil : reptilesAcuaticos) {
@@ -99,7 +99,7 @@ public class Main {
             
                     if (seleccion2 == 1) {
                         for (Serpiente serpiente : serpientes) {
-                            System.out.println("Comida diaria para la serpiente " + serpiente.nombreCientifico + ": " + serpiente.comidaDiaria() + " gramos");
+                            System.out.println("Comida diaria para la serpiente " + serpiente.nombreCientifico + ": " + serpiente.ComidaDiaria() + " gramos");
                         }
                     } else if (seleccion2 == 2) {
                         for (ReptilAcuatico reptil : reptilesAcuaticos) {
@@ -117,7 +117,7 @@ public class Main {
             
                     if (seleccion3 == 1) {
                         for (Serpiente serpiente : serpientes) {
-                            System.out.println("Costo mensual para la serpiente " + serpiente.nombreCientifico + ": Q" + serpiente.costoMantenimiento());
+                            System.out.println("Costo mensual para la serpiente " + serpiente.nombreCientifico + ": Q" + serpiente.CostoMantenimientoMensual());
                         }
                     } else if (seleccion3 == 2) {
                         for (ReptilAcuatico reptil : reptilesAcuaticos) {

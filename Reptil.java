@@ -66,6 +66,6 @@ public class Reptil extends Animal {
     }
 
     public String getInfo(){
-        return "Reptil: " + super.getNombreCientifico() + ", Esperanza de vida: " + super.getEsperanzaVida() + ", Temperatura corporal: " + this.temperaturaCorporal + ", Cantidad de huevos: " + this.cantidadHuevos + ", Peso: " + this.peso + ", En peligro de extinción: " + this.enPeligroExtincion + ", Dieta: " + this.dieta;
+        return super.getNombreCientifico() + ", Esperanza de vida: " + super.getEsperanzaVida() + ", Temperatura corporal: " + this.temperaturaCorporal + ", Cantidad de huevos: " + this.cantidadHuevos + ", Peso: " + this.peso + ", En peligro de extinción: " + this.enPeligroExtincion + ", Dieta: " + this.dieta;
     }
 }

@@ -2,7 +2,7 @@ public class ReptilAcuatico extends Reptil {
     private String tipoAgua;
     private double velocidadNado;
     private int duracionBuceo;
-    private double longitud; // En centímetros (cm)
+    private double longitud; // En metros (m)
 
     // Constructor
     public ReptilAcuatico(String nombreCientifico, String descripcionHabitat, int esperanzaVida,
@@ -68,11 +68,10 @@ public class ReptilAcuatico extends Reptil {
             // Reptiles muy grandes (más de 2 metros de longitud)
             return 7; // 7 metros cuadrados (70 pies cuadrados)
         }
-        return 0;
     }
 
     public String getInfo() {
         return "Reptil Acuatico: " + super.getInfo() + ", Tipo Agua: " + this.tipoAgua + ", Velocidad Nado: "
-                + this.velocidadNado + ", Duracion Buceo: " + this.duracionBuceo + ", Longitud (cm): " + this.longitud;
+                + this.velocidadNado + ", Duracion Buceo: " + this.duracionBuceo + ", Longitud (m): " + this.longitud;
     }
 }

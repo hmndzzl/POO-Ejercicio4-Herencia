@@ -37,7 +37,11 @@ public class ReptilAcuatico extends Reptil {
 	}
 
     //Methods
-    public double TamañoRecinto() {
+    public double tamañoRecinto() {
         return 0;
+    }
+
+    public String getInfo(){
+        return "Reptil Acuatico: " + super.getInfo() + ", Tipo Agua: " + this.tipoAgua + ", Velocidad Nado: " + this.velocidadNado + ", Duracion Buceo: " + this.duracionBuceo;
     }
 }

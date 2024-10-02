@@ -70,6 +70,6 @@ public class Serpiente extends Reptil {
     }
 
     public String getInfo(){
-        return "Serpiente: " + super.getInfo() + ", longitdud: " + this.longitud +  ", especie: " + this.especie + ", color de piel: " + this.venenosa + "tipo de veneno: " + this.tipoVeneno ;
+        return "Serpiente: " + super.getInfo() + ", longitud: " + this.longitud +  ", especie: " + this.especie + ", color de piel: " + this.venenosa + ", tipo de veneno: " + this.tipoVeneno ;
     }
 }

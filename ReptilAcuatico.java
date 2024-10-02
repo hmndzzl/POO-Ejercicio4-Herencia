@@ -51,6 +51,23 @@ public class ReptilAcuatico extends Reptil {
 
     // Methods
     public double tamañoRecinto() {
+        double longitudReptil = this.getLongitud();
+        if (longitudReptil < 0.2) {
+            // Reptiles pequeños (menos de 20 cm de longitud)
+            return 0.75; // 0.75 metros cuadrados (7.5 pies cuadrados)
+        } else if (longitudReptil >= 0.2 && longitudReptil < 0.4) {
+            // Reptiles medianos (20-40 cm de longitud)
+            return 1.5; // 1.5 metros cuadrados (15 pies cuadrados)
+        } else if (longitudReptil >= 0.4 && longitudReptil < 1) {
+            // Reptiles medianos/grandes (40 cm - 1 metro de longitud)
+            return 3; // 3 metros cuadrados
+        } else if (longitudReptil >= 1 && longitudReptil < 2) {
+            // Reptiles grandes (1-2 metros de longitud)
+            return 5; // 5 metros cuadrados (50 pies cuadrados)
+        } else {
+            // Reptiles muy grandes (más de 2 metros de longitud)
+            return 7; // 7 metros cuadrados (70 pies cuadrados)
+        }
         return 0;
     }
 

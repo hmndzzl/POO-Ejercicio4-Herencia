@@ -58,14 +58,36 @@ public class Serpiente extends Reptil {
 
     //Methods
     public double TamañoRecinto() {
-        return 0.0;
+        if (this.longitud < 1) {
+            return 1 + (Math.random() * (2 - 1)); 
+        } else if (this.longitud >= 1 && this.longitud <= 2) {
+            return 2 + (Math.random() * (4 - 2)); 
+        } else {
+            return 4 + (Math.random() * (6 - 4)); 
+        }
     }
 
     public double ComidaDiaria() {
-        return 0.0;
+        if (this.longitud < 1) {
+            return this.peso * (0.02 + Math.random() * (0.05 - 0.02)); 
+        } else if (this.longitud >= 1 && this.longitud <= 2) {
+            return this.peso * (0.03 + Math.random() * (0.06 - 0.03)); 
+        } else {
+            return this.peso * (0.04 + Math.random() * (0.08 - 0.04)); 
+        }
     }
 
     public double CostoMantenimientoMensual() {
-        return 0.0;
-    }
+        double costoMantenimientoDiario;
+        if (this.longitud < 1) {
+            costoMantenimientoDiario = 50; // para pequeñas
+        } else if (this.longitud >= 1 && this.longitud <= 2) {
+            costoMantenimientoDiario = 200; // para medianas
+        } else {
+            costoMantenimientoDiario = 500; // para grandes
+        }
+
+        // sumar el costo y multiplicarlo por 30 para sacar el costo menusal
+        return (costoMantenimientoDiario + this.ComidaDiaria() * 30) * 30;
+	}
 }

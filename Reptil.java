@@ -71,7 +71,7 @@ public class Reptil extends Animal {
 			}
 		} else if (this instanceof ReptilAcuatico) {
 			ReptilAcuatico reptilacuatico = (ReptilAcuatico) this;
-			
+
 		}
 		return 0;
 	}
@@ -86,4 +86,5 @@ public class Reptil extends Animal {
 				+ ", Peso: " + this.peso + ", En peligro de extinción: " + this.enPeligroExtincion + ", Dieta: "
 				+ this.dieta;
 	}
+
 }

@@ -57,11 +57,15 @@ public class Reptil extends Animal {
 	}
 
     //Methods 
-    public double ComidaDiaria() {
+    public double comidaDiaria() {
         return 0;
     }
 
-    public double CostoMantenimiento() {
+    public double costoMantenimiento() {
         return 0;
+    }
+
+    public String getInfo(){
+        return "Reptil: " + super.getNombreCientifico() + ", Esperanza de vida: " + super.getEsperanzaVida() + ", Temperatura corporal: " + this.temperaturaCorporal + ", Cantidad de huevos: " + this.cantidadHuevos + ", Peso: " + this.peso + ", En peligro de extinción: " + this.enPeligroExtincion + ", Dieta: " + this.dieta;
     }
 }

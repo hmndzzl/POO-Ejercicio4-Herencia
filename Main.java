@@ -220,6 +220,8 @@ public class Main {
         boolean enPeligroExtincion = scanner.nextBoolean();
         System.out.print("Dieta: ");
         String dieta = scanner.next();
+        System.out.println("Longitud (cm): ");
+        Double longitud = scanner.nextDouble();
         System.out.print("Tipo de Agua (dulce/salada): ");
         String tipoAgua = scanner.next();
         System.out.print("Velocidad de Nado (km/h): ");
@@ -227,6 +229,6 @@ public class Main {
         System.out.print("Duración de Buceo (min): ");
         int duracionBuceo = scanner.nextInt();
 
-        return new ReptilAcuatico(nombreCientifico, descripcionHabitat, esperanzaVida, temperaturaCorporal, cantidadHuevos, peso, enPeligroExtincion, dieta, tipoAgua, velocidadNado, duracionBuceo);
+        return new ReptilAcuatico(nombreCientifico, descripcionHabitat, esperanzaVida, temperaturaCorporal, cantidadHuevos, peso, enPeligroExtincion, dieta, longitud, tipoAgua, velocidadNado, duracionBuceo);
     }
 }

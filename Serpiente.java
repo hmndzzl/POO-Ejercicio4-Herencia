@@ -89,5 +89,9 @@ public class Serpiente extends Reptil {
 
         // sumar el costo y multiplicarlo por 30 para sacar el costo menusal
         return (costoMantenimientoDiario + this.ComidaDiaria() * 30) * 30;
+		
 	}
+	public String getInfo(){
+        return "Serpiente: " + super.getInfo() + ", longitud: " + this.longitud +  ", especie: " + this.especie + ", color de piel: " + this.venenosa + ", tipo de veneno: " + this.tipoVeneno ;
+    }
 }

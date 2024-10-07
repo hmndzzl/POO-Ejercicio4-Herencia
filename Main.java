@@ -14,25 +14,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); //Abrir scanner
-        boolean continuar = true; // Variable para controlar el ciclo while 
-        int opcion; //Almacenar la opción del usuario
+        Scanner scanner = new Scanner(System.in);
+        boolean continuar = true;
+        int opcion;
 
-        // Listas para guardar a los animales
-        ArrayList<Serpiente> serpientes = new ArrayList<>();
-        ArrayList<ReptilAcuatico> reptilesAcuaticos = new ArrayList<>();
+        // Crear zoológico
+        Zoologico zoologico = new Zoologico();
 
         // Presupuesto y costos
         double presupuestoAnual;
         double costoConstruccionRecinto;
-        
+
         System.out.println("Ingrese el presupuesto anual del zoológico: ");
         presupuestoAnual = scanner.nextDouble();
-        
+
         System.out.println("Ingrese el costo de construcción de un nuevo recinto: ");
         costoConstruccionRecinto = scanner.nextDouble();
 
-        while (continuar == true) {
+        while (continuar) {
             System.out.println("\n---------------------------------------------------------\n");
             System.out.println("1. Agregar una serpiente");
             System.out.println("2. Agregar un reptil acuático");
@@ -43,50 +42,50 @@ public class Main {
             System.out.println("7. Verificar si el zoológico puede aceptar el ejemplar");
             System.out.println("8. Salir");
             System.out.print("Elija una opción: ");
-            
+
             opcion = scanner.nextInt();
 
             switch (opcion) {
                 case 1:
                     // Agregar una nueva serpiente
                     Serpiente nuevaSerpiente = crearSerpiente(scanner);
-                    serpientes.add(nuevaSerpiente);
+                    zoologico.agregarAnimal(nuevaSerpiente);
                     System.out.println("Serpiente agregada exitosamente!");
                     break;
 
                 case 2:
                     // Agregar un nuevo reptil acuático
                     ReptilAcuatico nuevoReptil = crearReptilAcuatico(scanner);
-                    reptilesAcuaticos.add(nuevoReptil);
+                    zoologico.agregarAnimal(nuevoReptil);
                     System.out.println("Reptil acuático agregado exitosamente!");
                     break;
 
                 case 3:
                     // Mostrar información completa de todos los animales
-                    System.out.println("\nSerpientes registradas:");
-                    for (Serpiente serpiente : serpientes) {
-                        System.out.println(serpiente.getInfo());
-                    }
-                    System.out.println("\nReptiles acuáticos registrados:");
-                    for (ReptilAcuatico reptil : reptilesAcuaticos) {
-                        System.out.println(reptil.getInfo());
-                    }
+                    zoologico.imprimirAnimales();
                     break;
 
                 case 4:
-                    // Mostrar tamaño del recinto
+                    // Consultar tamaño del recinto
                     System.out.println("\nSeleccione el tipo de ejemplar para consultar el tamaño del recinto:");
                     System.out.println("1. Serpientes");
                     System.out.println("2. Reptiles Acuáticos");
                     int seleccion = scanner.nextInt();
-            
+
                     if (seleccion == 1) {
-                        for (Serpiente serpiente : serpientes) {
-                            System.out.println("Tamaño del recinto para la serpiente " + serpiente.nombreCientifico + ": " + serpiente.TamañoRecinto() + " m^2");
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof Serpiente) {
+                                System.out.println("Tamaño del recinto para la serpiente " + animal.nombreCientifico
+                                        + ": " + ((Serpiente) animal).TamañoRecinto() + " m^2");
+                            }
                         }
                     } else if (seleccion == 2) {
-                        for (ReptilAcuatico reptil : reptilesAcuaticos) {
-                            System.out.println("Tamaño del recinto para el reptil acuático " + reptil.nombreCientifico + ": " + reptil.tamañoRecinto() + " m^2");
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof ReptilAcuatico) {
+                                System.out
+                                        .println("Tamaño del recinto para el reptil acuático " + animal.nombreCientifico
+                                                + ": " + ((ReptilAcuatico) animal).tamañoRecinto() + " m^2");
+                            }
                         }
                     }
                     break;
@@ -96,32 +95,45 @@ public class Main {
                     System.out.println("1. Serpientes");
                     System.out.println("2. Reptiles Acuáticos");
                     int seleccion2 = scanner.nextInt();
-            
+
                     if (seleccion2 == 1) {
-                        for (Serpiente serpiente : serpientes) {
-                            System.out.println("Comida diaria para la serpiente " + serpiente.nombreCientifico + ": " + serpiente.ComidaDiaria() + " gramos");
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof Serpiente) {
+                                System.out.println("Comida diaria para la serpiente " + animal.nombreCientifico + ": "
+                                        + ((Serpiente) animal).ComidaDiaria() + " gramos");
+                            }
                         }
                     } else if (seleccion2 == 2) {
-                        for (ReptilAcuatico reptil : reptilesAcuaticos) {
-                            System.out.println("Comida diaria para el reptil acuático " + reptil.nombreCientifico + ": " + reptil.comidaDiaria() + " gramos");
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof ReptilAcuatico) {
+                                System.out.println("Comida diaria para el reptil acuático " + animal.nombreCientifico
+                                        + ": " + ((ReptilAcuatico) animal).comidaDiaria() + " gramos");
+                            }
                         }
                     }
                     break;
 
                 case 6:
                     // Mostrar costo mensual de mantenimiento
-                    System.out.println("\nSeleccione el tipo de ejemplar para consultar el costo mensual de mantenimiento:");
+                    System.out.println(
+                            "\nSeleccione el tipo de ejemplar para consultar el costo mensual de mantenimiento:");
                     System.out.println("1. Serpientes");
                     System.out.println("2. Reptiles Acuáticos");
                     int seleccion3 = scanner.nextInt();
-            
+
                     if (seleccion3 == 1) {
-                        for (Serpiente serpiente : serpientes) {
-                            System.out.println("Costo mensual para la serpiente " + serpiente.nombreCientifico + ": Q" + serpiente.CostoMantenimientoMensual());
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof Serpiente) {
+                                System.out.println("Costo mensual para la serpiente " + animal.nombreCientifico + ": Q"
+                                        + ((Serpiente) animal).CostoMantenimientoMensual());
+                            }
                         }
                     } else if (seleccion3 == 2) {
-                        for (ReptilAcuatico reptil : reptilesAcuaticos) {
-                            System.out.println("Costo mensual para el reptil acuático " + reptil.nombreCientifico + ": Q" + reptil.costoMantenimiento());
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof ReptilAcuatico) {
+                                System.out.println("Costo mensual para el reptil acuático " + animal.nombreCientifico
+                                        + ": Q" + ((ReptilAcuatico) animal).costoMantenimiento());
+                            }
                         }
                     }
                     break;
@@ -133,21 +145,26 @@ public class Main {
                     System.out.println("2. Reptiles Acuáticos");
                     int seleccion4 = scanner.nextInt();
                     double costoTotal = 0;
-            
+
                     if (seleccion4 == 1) {
-                        for (Serpiente serpiente : serpientes) {
-                            costoTotal += serpiente.costoMantenimiento() + costoConstruccionRecinto;
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof Serpiente) {
+                                costoTotal += ((Serpiente) animal).costoMantenimiento() + costoConstruccionRecinto;
+                            }
                         }
                     } else if (seleccion4 == 2) {
-                        for (ReptilAcuatico reptil : reptilesAcuaticos) {
-                            costoTotal += reptil.costoMantenimiento() + costoConstruccionRecinto;
+                        for (Animal animal : zoologico.getAnimales()) {
+                            if (animal instanceof ReptilAcuatico) {
+                                costoTotal += ((ReptilAcuatico) animal).costoMantenimiento() + costoConstruccionRecinto;
+                            }
                         }
                     }
-            
+
                     if (costoTotal <= presupuestoAnual) {
                         System.out.println("El zoológico tiene suficiente presupuesto para aceptar a los ejemplares.");
                     } else {
-                        System.out.println("El zoológico no tiene suficiente presupuesto para aceptar a los ejemplares.");
+                        System.out
+                                .println("El zoológico no tiene suficiente presupuesto para aceptar a los ejemplares.");
                     }
                     break;
 
@@ -198,7 +215,8 @@ public class Main {
             System.out.print("Tipo de veneno (neurotoxico/hemotoxico): ");
             tipoVeneno = scanner.next();
         }
-        return new Serpiente(nombreCientifico, descripcionHabitat, esperanzaVida, temperaturaCorporal, cantidadHuevos, peso, enPeligroExtincion, dieta, longitud, especie, colorPiel, venenosa, tipoVeneno);
+        return new Serpiente(nombreCientifico, descripcionHabitat, esperanzaVida, temperaturaCorporal, cantidadHuevos,
+                peso, enPeligroExtincion, dieta, longitud, especie, colorPiel, venenosa, tipoVeneno);
     }
 
     // Método para agregar un reptil acuático
@@ -229,6 +247,7 @@ public class Main {
         System.out.print("Duración de Buceo (min): ");
         int duracionBuceo = scanner.nextInt();
 
-        return new ReptilAcuatico(nombreCientifico, descripcionHabitat, esperanzaVida, temperaturaCorporal, cantidadHuevos, peso, enPeligroExtincion, dieta, longitud, tipoAgua, velocidadNado, duracionBuceo);
+        return new ReptilAcuatico(nombreCientifico, descripcionHabitat, esperanzaVida, temperaturaCorporal,
+                cantidadHuevos, peso, enPeligroExtincion, dieta, longitud, tipoAgua, velocidadNado, duracionBuceo);
     }
 }

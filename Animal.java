@@ -1,16 +1,16 @@
-public class Animal {
-    protected String nombreCientifico;
-    protected String descripcionHabitat;
-    protected int esperanzaVida;
+public abstract class Animal {
+	protected String nombreCientifico;
+	protected String descripcionHabitat;
+	protected int esperanzaVida;
 
-    //Constructor
-    public Animal(String nombreCientifico, String descripcionHabitat, int esperanzaVida) {
-        this.nombreCientifico = nombreCientifico;
-        this.descripcionHabitat = descripcionHabitat;
-        this.esperanzaVida = esperanzaVida;
-    }
+	// Constructor
+	public Animal(String nombreCientifico, String descripcionHabitat, int esperanzaVida) {
+		this.nombreCientifico = nombreCientifico;
+		this.descripcionHabitat = descripcionHabitat;
+		this.esperanzaVida = esperanzaVida;
+	}
 
-    //Setters & Getters
+	// Setters & Getters
 	public String getNombreCientifico() {
 		return this.nombreCientifico;
 	}
@@ -34,5 +34,8 @@ public class Animal {
 	public void setEsperanzaVida(int esperanzaVida) {
 		this.esperanzaVida = esperanzaVida;
 	}
+
+	// Método abstracto para información del animal
+	public abstract String getInfo();
 
 }

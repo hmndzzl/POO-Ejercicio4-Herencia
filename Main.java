@@ -40,7 +40,8 @@ public class Main {
             System.out.println("5. Consultar comida diaria");
             System.out.println("6. Consultar costo mensual de mantenimiento");
             System.out.println("7. Verificar si el zoológico puede aceptar el ejemplar");
-            System.out.println("8. Salir");
+            System.out.println("8. Eliminar un animal");
+            System.out.println("9. Salir");
             System.out.print("Elija una opción: ");
 
             opcion = scanner.nextInt();
@@ -169,6 +170,14 @@ public class Main {
                     break;
 
                 case 8:
+                    // Eliminar un animal
+                    System.out.println("Ingrese el índice del animal que desea eliminar:");
+                    int indexEliminar = scanner.nextInt();
+                    zoologico.eliminarAnimal(indexEliminar);
+                    System.out.println("Animal eliminado exitosamente (si el índice era válido).");
+                    break;
+
+                case 9:
                     // Salir del programa
                     continuar = false;
                     System.out.println("Saliendo del sistema...");
